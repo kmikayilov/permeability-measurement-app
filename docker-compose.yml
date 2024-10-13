@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  backend:
+    build: ./backend
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
+    volumes:
+      - static:/static
+    ports:
+      - 8000:8000
+  frontend:
+    build: ./frontend
+    command: npm start
+    volumes:
+      - frontend:/app/build
+    ports:
+      - 3000:3000
+  nginx:
+    build:
+      context: ./nginx
+    volumes:
+      - static:/static
+      - frontend:/var/www/frontend
+    ports:
+      - 80:80
+    depends_on:
+      - backend
+      - frontend
+
+volumes:
+  static:
+  frontend:

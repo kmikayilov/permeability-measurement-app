@@ -1,0 +1,23 @@
+.App {
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+
+.form-control {
+  min-height: 49px;
+}
+
+.pc-sidebar {
+  width: 380px !important;
+}
+
+.pc-container {
+  margin-left: 380px !important;
+}
+
+.pc-header {
+  left: 380px !important;
+}
